@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <script>
+    function findMax(num1, num2) {
+        if (num1 > num2) {
+            return num1;
+        } else {
+            return num2;
+        }
+    }
+
+    function validate() {
+        var num1 = $('#num1').val();
+        var num2 = $('#num2').val();
+        if (isNaN(num1)) {
+            $('#result').text('first textbox contains invalid number.');
+            return;
+        }
+        if (isNaN(num2)) {
+            $('#result').text('second textbox contains invalid number.');
+            return;
+        }
+        $('#result').text('result : ' + findMax(num1, num2));
+    }
+    </script>
+    <pre>
+	function findMax(num1, num2) {
+		if(num1 > num2) {
+			return num1;
+		} else {
+			return num2;
+		}
+	}
+	function validate() {
+		var num1 = $('#num1').val();
+		var num2 = $('#num2').val();
+		if(isNaN(num1)) {
+			$('#result').text('first textbox contains invalid number.');	
+			return;
+		} 
+		if(isNaN(num2)) {
+			$('#result').text('second textbox contains invalid number.');	
+			return;
+		} 
+		$('#result').text('result : ' + findMax(num1, num2));
+	}
+</pre>
+    <div>
+        <input type="text" id="num1" />
+        <input type="text" id="num2" />
+        <input type="button" value="max" onclick="validate()" />
+        <label id="result"></label>
+    </div>
+</body>
+
+</html>

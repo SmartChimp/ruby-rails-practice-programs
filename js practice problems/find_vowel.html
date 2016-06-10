@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <script>
+    var VOWELS_ARRAY = ['a', 'e', 'i', 'o', 'u'];
+
+    function isVowel(ch) {
+        return (VOWELS_ARRAY.indexOf(ch.toLowerCase()) == -1)?false:true;
+    }
+
+    function validate() {
+        var txtValue = $('#text-box-1').val();
+        if(txtValue.length != 1) {
+            $('#result').text('Invalid input. give single character.');
+            return;
+        }
+        $('#result').text((isVowel(txtValue))? 'Its a vowel.': 'Its not a vowel.');
+    }
+    </script>
+    <pre>
+        var VOWELS_ARRAY = ['a', 'e', 'i', 'o', 'u'];
+
+        function isVowel(ch) {
+            return (VOWELS_ARRAY.indexOf(ch.toLowerCase()) == -1)?false:true;
+        }
+
+        function validate() {
+            var txtValue = $('#text-box-1').val();
+            if(txtValue.length != 1) {
+                $('#result').text('Invalid input. give single character.');
+                return;
+            }
+            $('#result').text((isVowel(txtValue))? 'Its a vowel.': 'Its not a vowel.');
+        }
+    </pre>
+    <div>
+        <input type="text" id="text-box-1" />
+        <input type="button" value="max" onclick="validate()" />
+        <label id="result"></label>
+    </div>
+</body>
+
+</html>

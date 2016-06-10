@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <script>
+    text_hash = {
+                "merry": "god",
+                "christmas": "jul",
+                "and": "och",
+                "happy": "gott",
+                "new": "nytt",
+                "year": "år"
+            }
+    function translate(str) {
+        var translatedString = "";
+
+        str.toLowerCase().split(" ").map(function(currentValue, index, arr) {
+            translatedString += text_hash[currentValue] + ' ';
+        });
+
+        return translatedString;
+    }
+    document.body.onload = function(){
+        document.getElementById('result').innerHTML += translate('Merry christmas and happy new year');    
+    };
+    
+
+    </script>
+    <pre>
+       text_hash = {
+                "merry": "god",
+                "christmas": "jul",
+                "and": "och",
+                "happy": "gott",
+                "new": "nytt",
+                "year": "år"
+            }
+        function translate(str) {
+            var translatedString = "";
+
+            str.toLowerCase().split(" ").map(function(currentValue, index, arr) {
+                translatedString += text_hash[currentValue] + ' ';
+            });
+
+            return translatedString;
+        }
+    </pre>
+    <div>
+        <label id="result">Translated string of "Merry christmas and happy new year" is </label>
+    </div>
+</body>
+
+</html>

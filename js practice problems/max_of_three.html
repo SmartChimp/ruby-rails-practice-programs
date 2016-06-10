@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <script>
+    function maxOfThree(num1, num2, num3) {
+        return (num1 > num2) ? ((num1 > num3) ? num1 : num3) : ((num2 > num3) ? num2 : num3);
+    }
+
+    function validate() {
+        num1 = parseInt($('#num1').val());
+        num2 = parseInt($('#num2').val());
+        num3 = parseInt($('#num3').val());
+        if (isNaN(num1)) {
+            $('#result').text('first textbox contains invalid number.');
+            return;
+        }
+        if (isNaN(num2)) {
+            $('#result').text('second textbox contains invalid number.');
+            return;
+        }
+        if (isNaN(num3)) {
+            $('#result').text('third textbox contains invalid number.');
+            return;
+        }
+        $('#result').text('result : ' + maxOfThree(num1, num2, num3));
+    }
+    </script>
+    <pre>
+		function maxOfThree(num1, num2, num3) {
+			return (num1 > num2) ? ((num1>num3) ? num1 : num3) : ((num2 > num3) ? num2 : num3);
+		}
+		function validate() {
+			num1 = parseInt($('#num1').val());
+			num2 = parseInt($('#num2').val());
+			num3 = parseInt($('#num3').val());
+			if(isNaN(num1)) {
+				$('#result').text('first textbox contains invalid number.');	
+				return;
+			} 
+			if(isNaN(num2)) {
+				$('#result').text('second textbox contains invalid number.');	
+				return;
+			} 
+			if(isNaN(num3)) {
+				$('#result').text('third textbox contains invalid number.');	
+				return;
+			} 
+			$('#result').text('result : ' + maxOfThree(num1, num2, num3));
+		}
+	</pre>
+    <div>
+        <input type="text" id="num1" />
+        <input type="text" id="num2" />
+        <input type="text" id="num3" />
+        <input type="button" value="max" onclick="validate()" />
+        <label id="result"></label>
+    </div>
+</body>
+
+</html>

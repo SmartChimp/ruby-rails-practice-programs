@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <script>
+    var VOWELS_ARRAY = ['a', 'e', 'i', 'o', 'u'];
+
+    function isVowel(ch) {
+        return (VOWELS_ARRAY.indexOf(ch.toLowerCase()) == -1) ? false : true;
+    }
+
+    function translateText(txtValue) {
+        var txtLength = txtValue.length;
+        var response = "";
+        for (j = 0; j < txtLength; j++) {
+            var ch = txtValue.charAt(j);
+            var ascii_val = ch.charCodeAt(0);
+            if ((ascii_val > 64 && ascii_val < 91) || (ascii_val > 96 && ascii_val < 123)) {
+                if (!isVowel(ch)) {
+                    response += ch + 'o' + ch;
+                } else {
+                    response += ch;
+                }
+            } else {
+                response += ch;
+            }
+        }
+        return response;
+    }
+
+    function execute(txtBoxElem) {
+        txtValue = txtBoxElem.value;
+        $('#result').text(translateText(txtValue));
+    }
+    </script>
+    <pre>
+        var VOWELS_ARRAY = ['a', 'e', 'i', 'o', 'u'];
+
+        function isVowel(ch) {
+            return (VOWELS_ARRAY.indexOf(ch) == -1) ? false : true;
+        }
+
+        function translateText(txtValue) {
+            var txt_length = txtValue.length;
+            var response = "";
+            for (j = 0; j < txt_length; j++) {
+                var ch = txtValue.charAt(j);
+                var ascii_val = ch.charCodeAt(0);
+                if ((ascii_val > 64 && ascii_val < 91) || (ascii_val > 96 && ascii_val < 123)) {
+                    if (!isVowel(ch)) {
+                        response += ch + 'o' + ch;
+                    } else {
+                        response += ch;
+                    }
+                } else {
+                    response += ch;
+                }
+            }
+            return response;
+        }
+
+        function execute(txtBoxElem) {
+            txtValue = txtBoxElem.value;
+            $('#result').text(translateText(txtValue));
+        }
+    </pre>
+    <div>
+        <input type="text" id="text-box-1" onblur="execute(this)" />
+        <label id="result"></label>
+    </div>
+</body>
+
+</html>

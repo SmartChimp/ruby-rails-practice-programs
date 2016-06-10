@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <script>
+   
+        function execute(textBoxElement) {
+           document.getElementById('result').innerHTML = 'Length of longest word is '+ findLengthOfLongestWord(textBoxElement.value.split(' '));
+        }
+    
+        function findLengthOfLongestWord(stringArray) {
+            var longestWordLength = 0;
+            stringArray.forEach(function(value){
+                (value.length > longestWordLength) ? longestWordLength = value.length : true ;
+            })
+            return longestWordLength;
+        }
+
+    </script>
+    <pre>
+       function findLengthOfLongestWord(stringArray) {
+            var longestWordLength = 0;
+            stringArray.forEach(function(value){
+                (value.length > longestWordLength) ? longestWordLength = value.length : true ;
+            })
+            return longestWordLength;
+        }
+    </pre>
+    <div>
+        <input type="text" id="text-box-1" onblur="execute(this)" />
+        <label id="result"></label>
+    </div>
+</body>
+
+</html>

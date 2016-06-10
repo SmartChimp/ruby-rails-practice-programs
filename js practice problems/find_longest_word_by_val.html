@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <script>
+   
+        function execute() {
+            var stringArray = document.getElementById('text-box-1').value.split(' ');
+            var maxCount = document.getElementById('text-box-2').value;
+            var responseArray = filterLongWords(stringArray, maxCount);
+            document.getElementById('result').innerHTML = (responseArray.length < 0) ? 'There are no words with length greater than given value.' : 'Words with length greater than given value are ['+responseArray+']';
+        }
+        
+        function filterLongWords(stringArray, maxCount) {
+            return stringArray.filter(function(val){
+                return (val.length > maxCount)?true:false;
+            });
+        }
+        
+
+    </script>
+    <pre>
+        function filterLongWords(stringArray, maxCount) {
+            return stringArray.filter(function(val){
+                return (val.length > maxCount)?true:false;
+            });
+        }
+    </pre>
+    <div>
+        <label >Enter text : </label>
+        <input type="text" id="text-box-1" /> </br>
+        <label >Enter count value : </label>
+        <input type="text" id="text-box-2" /> </br>
+        <input type="button" id="submit" value="submit" onclick="execute()" /></br>
+        <label id="result"></label>
+    </div>
+</body>
+
+</html>

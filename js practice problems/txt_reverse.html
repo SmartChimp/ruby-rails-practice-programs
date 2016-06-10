@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <pre>
+        function reverseTxt(txtValue) {
+            txt1 = '';
+            txt2 = '';
+            for(i=0,j=txtValue.length - 1; i&lt;j; i++, j--) {
+                txt1 = txtValue.charAt(i) + txt1;
+                txt2 += txtValue.charAt(j);
+            }
+            if(i==j) {
+                txt2 += txtValue.charAt(i);
+            }
+            return txt2+txt1;
+        }
+    </pre>
+    <div id="response">
+        <input type="text" id="text-box-1" onblur="execute(this)" />
+        <label id="result"></label>
+    </div>
+    <script>
+        function reverseTxt(txtValue) {
+            txt1 = '';
+            txt2 = '';
+            for(i=0,j=txtValue.length - 1; i<j; i++, j--) {
+                txt1 = txtValue.charAt(i) + txt1;
+                txt2 += txtValue.charAt(j);
+            }
+            if(i==j) {
+                txt2 += txtValue.charAt(i);
+            }
+            return txt2+txt1;
+        }
+        function execute(txtBoxElem) {
+            txtValue = txtBoxElem.value;
+            $('#result').text(reverseTxt(txtValue));
+        }
+    </script>
+</body>
+</html>

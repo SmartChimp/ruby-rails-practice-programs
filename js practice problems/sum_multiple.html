@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <pre>
+         function sumArray(arrayValue) {
+            var len = arrayValue.length;
+            var result = 0;
+            for(i=0,j=len-1; i&lt;j; i++,j--){
+                result += arrayValue[i]+arrayValue[j];
+            }
+            if(i==j) {
+                result+=arrayValue[i];
+            }
+            return result;
+        }
+        function multipleArray(arrayValue) {
+            var len = arrayValue.length;
+            if(len > 0) {
+                var result = 1;
+                for(i=0,j=len-1; i&lt;j; i++,j--){
+                    result *= arrayValue[i]*arrayValue[j];
+                }
+                if(i==j) {
+                    result*=arrayValue[i];
+                }
+                return result;
+            }
+            return 0;
+        }
+    </pre>
+    <div id="response">
+    </div>
+    <script>
+    function sumArray(arrayValue) {
+        var len = arrayValue.length;
+        var result = 0;
+        for (i = 0, j = len - 1; i < j; i++, j--) {
+            result += arrayValue[i] + arrayValue[j];
+        }
+        if (i == j) {
+            result += arrayValue[i];
+        }
+        return result;
+    }
+
+    function multipleArray(arrayValue) {
+        var len = arrayValue.length;
+        if (len > 0) {
+            var result = 1;
+            for (i = 0, j = len - 1; i < j; i++, j--) {
+                result *= arrayValue[i] * arrayValue[j];
+            }
+            if (i == j) {
+                result *= arrayValue[i];
+            }
+            return result;
+        }
+        return 0;
+    }
+    document.getElementById('response').innerHTML = 'sumArray([2,3,4,5]) = ' + sumArray([2, 3, 4, 5]) + '<br> multipleArray([1,2,3,4,5]) : ' + multipleArray([1, 2, 3, 4, 5]);
+    </script>
+</body>
+
+</html>

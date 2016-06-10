@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <script>
+   
+        function execute(txtBoxElement) {
+            var stringValue = txtBoxElement.value;
+            var i = 0;
+            var frequencyArray = {};
+            while(stringValue[i] != undefined) {
+                if(stringValue[i] != ' ') {
+                    (frequencyArray[stringValue[i]] === undefined)? frequencyArray[stringValue[i]] = 1 : frequencyArray[stringValue[i]] += 1;
+                }
+                i++;
+            }
+            var txt = '';
+            for(key in frequencyArray) {
+                txt += ' ['+key+','+frequencyArray[key]+']';
+            }
+            document.getElementById('result').innerHTML = 'Character frequencies are '+txt;
+        }
+    </script>
+    <pre>
+         function execute(txtBoxElement) {
+            var stringValue = txtBoxElement.value;
+            var i = 0;
+            var frequencyArray = {};
+            while(stringValue[i] != undefined) {
+                if(stringValue[i] != ' ') {
+                    (frequencyArray[stringValue[i]] === undefined)? frequencyArray[stringValue[i]] = 1 : frequencyArray[stringValue[i]] += 1;
+                }
+                i++;
+            }
+            var txt = '';
+            for(key in frequencyArray) {
+                txt += ' ['+key+','+frequencyArray[key]+']';
+            }
+            document.getElementById('result').innerHTML = 'Character frequencies are '+txt;
+        }
+    </pre>
+    <div>
+        <label >Enter text : </label>
+        <input type="text" id="text-box-1" onblur="execute(this)"/> </br>
+        <label id="result"></label>
+    </div>
+</body>
+
+</html>

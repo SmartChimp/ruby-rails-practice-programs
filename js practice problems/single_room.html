@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="tic-tac-toe-single-screen.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+    </script>
+    <script src="tic-tac-toe-single-screen.js">
+    </script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container" style="width:100%; height:100%">
+        <div id="play-board" style="width:21%; height:26%; position:relative;float:left;">
+        </div>
+        <div class="outer-div">
+            <div id="coin-div" class="coin-div">
+                <div class="text-msg-div">Choose coin for player 1 </div>
+                <div id="o-img" class="o-box coin-box" onclick="coinPicked(this)" data-coin="o"></div>
+                <div id="x-img" class="x-box coin-box" onclick="coinPicked(this)" data-coin="x"></div>
+            </div>
+            <div id="result-div" class="result-div">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
