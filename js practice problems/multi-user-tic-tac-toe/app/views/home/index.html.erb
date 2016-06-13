@@ -1,0 +1,10 @@
+<div id="container" class="container">
+    <div id="top-pannel" class="top-pannel">
+        <a href="#" class="btn btn-default" role="button" onclick="clickNewGame()">New Game.</a>
+    </div>
+    <div id="list-games-div">
+    	<div class="row">
+    		<%= render partial: "games", collection: get_games %>
+        </div>
+    </div>
+</div>

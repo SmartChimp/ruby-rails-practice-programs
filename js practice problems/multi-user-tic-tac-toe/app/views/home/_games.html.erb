@@ -1,0 +1,25 @@
+<div class="col-sm-6 col-md-2 col-xs-2">
+    <div class="thumbnail">
+        <div class="caption">
+            <h3>Game <%= games.get_id %></h3>
+            <p>Player one, <%= games.get_players[0] %>.
+                <br/><% if games.get_players_count == 2 then %>
+                    Player two, <%= games.get_players[1] %>.
+                    <% end %>
+                    <% if games.get_winner != nil then %>
+                        <div id="result"><%= games.get_winner %> is winner.</div>
+                    <% end %>
+            </p>
+            <p>
+                <form class="form-horizontal" role="form">
+				    <div>
+				        <div class="form-group">
+				            <label for="inputsm" style="margin-left: 9%;">Name</label>
+				            <input style="width: 80%;margin-left: 9%;" id="game-<%= games.get_id %>-name-txt" class="form-control input-sm" type="text"> </div>
+				        <div class="form-group"> <a href="#" class="btn btn-primary" style="float: right; margin-right: 12%;" role="button" onclick="validateAndJoin('<%= games.get_id %>')">Join</a> </div>
+				    </div>
+				</form>
+            </p>
+        </div>
+    </div>
+</div>

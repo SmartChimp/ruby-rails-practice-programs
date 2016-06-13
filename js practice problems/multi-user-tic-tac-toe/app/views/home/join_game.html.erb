@@ -1,0 +1,29 @@
+<div id="game-left-pannel" class="game-left-pannel" style="width: 20%; height: 500px; position:relative; float:left">
+</div>
+<div class="welcome-msg">Hi <%= cookies[:user_name] %>...</div>
+<div id="play-board" style="width:21%; height:26%; position:relative;float:left; margin-left: 15px;">
+</div>
+<div class="outer-div">
+    <div id="coin-div" class="coin-div">
+        <% if (@game.get_player1_coin == nil || @game.get_player1_coin == '') %>
+            <div class="text-msg-div">Waiting for Player1 to choose coin.</div> 
+        <% else %>
+            <div class="player-name-div">Player 1</div>
+            <div class="player-name-div">Player 2</div>
+            <div class="<%= @game.get_player1_coin %>-box coin-pic-div first-coin-pic-div" id="player-1-coin"></div>
+            <div class="<%= @game.get_player2_coin %>-box coin-pic-div first-coin-pic-div" id="player-2-coin"></div>
+        <% end %>
+    </div>
+    <div id="result-div" class="result-div">
+    </div>
+</div>
+</div>
+<script>
+	match = <%= raw @game.to_json %>;
+    for (var i = 0; i < 9; i++) {
+        $('#play-board').append('<div class="col-xs-4 box" data-block-no="' + i + '" data-block-value="" onclick="markMe(this)"></div>');
+    }
+    blockGridData(match.block_value);
+    renderLeftPannel(match);
+    window.setInterval(updateGameData, 1000);
+</script>

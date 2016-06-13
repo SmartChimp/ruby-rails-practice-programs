@@ -1,0 +1,152 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.top-pannel {
+	width: 100%;
+    height: 5%;
+    padding: 10px;
+    margin: 10px;	
+}
+
+.box {
+        border-style: double;
+        border-width: thin;
+        height: 60px;
+}
+
+.x-box {
+    background: url('x-pic.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.o-box {
+    background: url('o-pic.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.text-msg-div {
+    width: 100%;
+    height: 28%;
+    font-family: 'Lato' !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5em;
+    font-size: 125%;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.coin-box:hover {
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.coin-box {
+    width: 40%;
+    height: 70px;
+    position: relative;
+    float: left;
+    border: 1px solid #9325BC;
+    padding: 10px;
+    margin: 5px;
+    margin-left: 15px;
+    border-radius: 15px;
+}
+
+.coin-div {
+    width: 100%;
+    height: 75%;
+    position: relative;
+    float: left;
+}
+
+.result-div {
+    width: 100%;
+    height: 25%;
+    position: relative;
+    float: left;
+    text-align: center;
+    font-family: 'Lato' !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5em;
+    font-size: 125%;
+}
+
+.outer-div {
+    width: 25%;
+    height: 26%;
+    position: relative;
+    float: left;
+}
+
+.player-name-div {
+    text-align: center;
+    width: 50%;
+    font-family: 'Lato' !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5em;
+    font-size: 125%;
+    position: relative;
+    float: left
+}
+
+.coin-pic-div {
+    width: 35%;
+    height: 85px;
+    position: relative;
+    float: left;
+}
+
+.first-coin-pic-div {
+    margin-left: 7%;
+}
+
+.second-coin-pic-div {
+    margin-left: 15%;
+}
+
+.game-left-pannel {
+	display: block;
+    padding: 10px;
+    margin-bottom: 20px;
+    line-height: 1.428571429;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.welcome-msg{
+    font-size: 24px;
+    padding: 20px;
+    position: relative;
+    width: 75%;
+    float: left;
+}
+
+.name-div {
+    font-family: fantasy;
+    font-size: 20px;
+    padding: 5px 5px 5px 5px;
+    margin-top: 5px;
+}
