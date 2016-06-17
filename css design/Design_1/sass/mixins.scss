@@ -1,0 +1,28 @@
+$menu-font-color: #A0A0A0;
+$instructor-pic-width: 20%;
+$line-div-width: $instructor-pic-width/2;
+
+@mixin position-the-element-left {
+	position: relative;
+	float: left;
+}
+
+@mixin draw-gray-line{
+	width: $line-div-width;
+	box-shadow: 1px 0px 0px #B3B3B3;
+	border-right: 1px solid #B4B4B4;
+}
+
+
+@mixin default-font-style {
+	color: $menu-font-color;
+	font-family: sans-serif;
+	text-decoration: none;
+	font-size: 15px;
+	line-height: 150%;
+}
+
+@mixin position-the-element-right {
+	position: relative;
+  	float: right;
+}

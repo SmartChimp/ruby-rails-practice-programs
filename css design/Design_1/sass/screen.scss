@@ -1,0 +1,21 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+$default-font-style : 'Museo Sans', "museosans-web";
+
+@import "compass/reset";
+@import "compass/utilities";
+@import "top_panel";
+@import "content_body_left_panel";
+@import "content_body_right_panel";
+@import "../assets/stylesheets/bootstrap";
+@import "compass/css3";
+
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/fonts/bootstrap/glyphicons-halflings-regular.eot');
+  src: url('../assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('../assets/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('../assets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}

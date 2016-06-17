@@ -1,0 +1,44 @@
+var data = {
+    "course_details": {
+        "heading": "How to motivate your team.",
+        "by": "Adam Schwartzman",
+        "course_content": [{
+            "topic": "Where to get started",
+            "lessons": [{
+                "type": "video",
+                "title": "Root out five common motive stoppers"
+            }, {
+                "type": "text",
+                "title": "Team members choose projects"
+            }, {
+                "type": "video",
+                "title": "Pay team members really well(but axe bonuses)"
+            }]
+        }, {
+            "topic": "Where to get started",
+            "lessons": [{
+                "type": "text",
+                "title": "Root out five common motive stoppers"
+            }, {
+                "type": "text",
+                "title": "Team members choose projects"
+            }, {
+                "type": "video",
+                "title": "Pay team members really well(but axe bonuses)"
+            }]
+        }, {
+            "topic": "Where to get started",
+            "lessons": [{
+                "type": "text",
+                "title": "Root out five common motive stoppers"
+            }, {
+                "type": "text",
+                "title": "Team members choose projects"
+            }, {
+                "type": "text",
+                "title": "Pay team members really well(but axe bonuses)"
+            }]
+        } ]
+
+    }
+};

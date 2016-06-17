@@ -1,0 +1,82 @@
+data = {
+    "course_details": {
+        "heading": "How to motivate your team.",
+        "by": "Adam Schwartzman",
+        "course_content": [{
+            "topic": "Where to get started",
+            "lessons": [{
+                "type": "video",
+                "title": "Root out five common motive stoppers"
+            }, {
+                "type": "text",
+                "title": "Team members choose projects"
+            }, {
+                "type": "video",
+                "title": "Pay team members really well(but axe bonuses)"
+            }]
+        }, {
+            "topic": "Where to get started",
+            "lessons": [{
+                "type": "text",
+                "title": "Root out five common motive stoppers"
+            }, {
+                "type": "text",
+                "title": "Team members choose projects"
+            }, {
+                "type": "video",
+                "title": "Pay team members really well(but axe bonuses)"
+            }]
+        }, {
+            "topic": "Where to get started",
+            "lessons": [{
+                "type": "text",
+                "title": "Root out five common motive stoppers"
+            }, {
+                "type": "text",
+                "title": "Team members choose projects"
+            }, {
+                "type": "text",
+                "title": "Pay team members really well(but axe bonuses)"
+            }]
+        } ]
+
+    }
+};
+
+comments = {
+    "comments" : [
+        {
+            "id": "1",
+            "by": "John",
+            "on": "1 month ago.",
+            "content": "It should work always. You can call the class name as .group instead of .clearfix , as it will make the code more semantic. Note that, it is Not necessary to add the dot or even a space in the value of Content between the double quotation . Also, overflow: auto; might solve the problem but it causes other problems like showing the scroll-bar and is not recommended.",
+            "replies" : [
+                {
+                    "id": "1",
+                    "by": "Peter",
+                    "on": "1 month ago",
+                    "content": "Old question, but in my case i found using position:fixed solved it for me. My situation might have been a little different though. I had an overlayed semi transparent div with a loading animation in it that I needed displayed while the page was loading."
+                },{
+                   "id": "2",
+                    "by": "Jeni",
+                    "on": "10 days ago.",
+                    "content": "I'm not entirely sure that I've understood the question because this is a fairly straightforward answer, but here goes... :)"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "by": "Sofia",
+            "on": "15 days ago.",
+            "content": "I think the problem is that when you tell the body to have a height of 100%, it's background can only be as tall as the hieght of one browser \"viewport\" (the viewing area that excludes the browsers toolbars & statusbars & menubars and the window edges). If the content is taller than one viewport, it will overflow the height devoted to the background.",
+            "replies" : []
+        },
+         {
+            "id": "3",
+            "by": "Jeni",
+            "on": "10 days ago.",
+            "content": "I'm not entirely sure that I've understood the question because this is a fairly straightforward answer, but here goes... :)",
+            "replies" : []
+        }
+    ]
+};

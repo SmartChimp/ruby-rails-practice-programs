@@ -1,0 +1,114 @@
+/* line 7, ../sass/top_panel.scss */
+.top-panel ul, .search-panel span, .search-panel input {
+  height: 41.5px;
+  margin: 36.08696px 0 0 0;
+}
+
+/* line 12, ../sass/top_panel.scss */
+.profile-pic, .account-name {
+  height: 41.5px;
+  margin: 27.66667px 0 0 0;
+}
+
+/* line 17, ../sass/top_panel.scss */
+.top-panel {
+  height: 83px;
+  background-color: #383D41;
+  width: 100%;
+}
+/* line 21, ../sass/top_panel.scss */
+.top-panel ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+/* line 25, ../sass/top_panel.scss */
+.top-panel ul li {
+  float: left;
+}
+/* line 27, ../sass/top_panel.scss */
+.top-panel ul li a {
+  color: #A0A0A0;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 150%;
+  display: block;
+  text-align: center;
+  padding: 0px 15px 0px 15px;
+}
+
+/* line 37, ../sass/top_panel.scss */
+.app-img {
+  position: relative;
+  float: left;
+  height: 83px;
+  width: 130px;
+  background-image: url("../images/app-icon.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/* line 47, ../sass/top_panel.scss */
+.profile-pic {
+  border-radius: 50%;
+  behavior: url(PIE.htc);
+  background: white;
+}
+
+/* line 54, ../sass/top_panel.scss */
+.account-name {
+  color: #A0A0A0;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 150%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10.375px;
+}
+
+/* line 61, ../sass/top_panel.scss */
+.position-left {
+  position: relative;
+  float: left;
+}
+
+/* line 65, ../sass/top_panel.scss */
+.remove-padding {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+/* line 70, ../sass/top_panel.scss */
+.search-panel {
+  color: #A0A0A0;
+}
+/* line 72, ../sass/top_panel.scss */
+.search-panel span {
+  position: relative;
+  float: left;
+  font-size: 20px;
+  padding-right: 5%;
+  width: 20%;
+}
+/* line 79, ../sass/top_panel.scss */
+.search-panel input {
+  position: relative;
+  float: left;
+  color: #A0A0A0;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 150%;
+  border: 1px;
+  border-radius: 4px;
+  width: 80%;
+  border-color: #383D41;
+  background-color: #383D41;
+  height: 23px;
+}
+
+/* line 91, ../sass/top_panel.scss */
+.profile-panel {
+  padding-left: 5px !important;
+}

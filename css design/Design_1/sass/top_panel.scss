@@ -1,0 +1,93 @@
+@import "compass/css3";
+@import "mixins";
+
+$background-color: #383D41;
+$height: 83px;
+
+%height-margin-css {
+	height: $height/2;
+    margin: $height/2.3 0 0 0;
+}
+
+%profile-height-margin-css {
+	height: $height/2;
+    margin: $height/3 0 0 0;
+}
+
+.top-panel {
+	height: $height;
+	background-color: $background-color;
+	width: 100%;
+	ul {
+		@extend %height-margin-css;
+		list-style-type: none;
+	    overflow: hidden;
+	    li {
+    		float: left;
+    		a {
+    			@include default-font-style;
+			    display: block;
+			    text-align: center;
+			    padding: 0px 15px 0px 15px;
+			}
+		}	
+	}
+}
+
+.app-img {
+	@include position-the-element-left;
+	height: $height;
+	width: 130px;
+	background-image: url('../images/app-icon.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+
+.profile-pic {
+	@extend %profile-height-margin-css;
+	border-radius: 50%;
+    behavior: url(PIE.htc); 
+    background: white;
+}
+
+.account-name {
+	@extend %profile-height-margin-css;
+	@include default-font-style;
+	overflow:hidden;
+    text-overflow:ellipsis;
+    padding: $height/8;
+}
+.position-left {
+	@include position-the-element-left;
+}
+
+.remove-padding {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+.search-panel {
+    color: $menu-font-color;
+    span {
+    	@extend %height-margin-css;
+    	@include position-the-element-left;
+    	font-size: 20px;
+    	padding-right: 5%;
+    	width: 20%
+    }
+    input {
+    	@extend %height-margin-css;
+    	@include position-the-element-left;
+    	@include default-font-style;
+    	border: 1px;
+    	border-radius: 4px;
+    	width: 80%;
+    	border-color: $background-color;
+    	background-color: $background-color;
+    	height: 23px;
+    }
+}
+.profile-panel {
+	padding-left: 5px !important;	
+}

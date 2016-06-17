@@ -1,0 +1,298 @@
+/* line 6, ../sass/content_body_right_panel.scss */
+.content-body-right-panel {
+  padding: 30px 40px 30px 40px !important;
+}
+/* line 8, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .header {
+  padding: 10px 0px 20px 0px;
+  border-bottom: 1px solid #E6E6E6;
+  font-size: 15px;
+  width: 100%;
+  display: inline-block;
+  box-shadow: 0px 1px 0px #D4D4D4;
+}
+/* line 15, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .header span {
+  position: relative;
+  float: left;
+  font-size: 16px;
+  font-stretch: semi-condensed;
+  font-weight: 500;
+  color: darkturquoise;
+  font-family: sans-serif;
+}
+/* line 23, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .header i {
+  padding: 0px 10px 0px 0px;
+}
+/* line 26, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .header .button {
+  position: relative;
+  float: right;
+}
+/* line 29, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .header .previous {
+  margin-right: 3%;
+}
+/* line 33, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel {
+  padding: 30px 0px 0px 0px;
+  display: inline-block;
+}
+/* line 36, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel .profile-pic {
+  border-radius: 50%;
+  background: #D4D4D4;
+  width: 100%;
+  height: 60px;
+  margin-top: 3px;
+}
+/* line 43, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel .heading {
+  font-size: x-large;
+  font-family: sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 49, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel .default-font {
+  color: #A0A0A0;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 150%;
+}
+/* line 52, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel .mark-icon {
+  color: #A0A0A0;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 150%;
+  color: #E6E6E6;
+  display: inline-block;
+  width: auto;
+  padding: 0px 10px 0px 10px;
+  border-right: 2px solid #E6E6E6;
+}
+/* line 59, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel .mark-icon span {
+  padding-right: 3px;
+}
+/* line 63, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel .instructor-name {
+  color: #A0A0A0;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 150%;
+  color: darkturquoise;
+}
+/* line 67, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel .lesson-by {
+  display: inline-block;
+  padding-right: 20px;
+  width: auto;
+}
+/* line 72, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .lesson-content-pannel .url {
+  color: darkturquoise;
+}
+/* line 76, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .video-wrapper {
+  padding-top: 4%;
+  padding-bottom: 4%;
+  display: inline-table;
+  height: auto;
+}
+/* line 82, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .content-text {
+  padding: 20px 0px 0px 0px;
+}
+/* line 84, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .content-text p {
+  text-align: justify;
+}
+/* line 88, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-count {
+  color: red;
+}
+/* line 91, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .question-and-comments-header {
+  padding: 0px 0px 20px 0px;
+}
+/* line 93, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .question-and-comments-header .heading {
+  font-family: cursive;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #676767;
+}
+/* line 100, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .write-comment-container {
+  background-color: rgba(230, 239, 238, 0.49);
+  padding: 20px 20px 15px 20px;
+  border-radius: 5px;
+}
+/* line 104, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .write-comment-container .comment-textbox {
+  width: 100%;
+}
+/* line 107, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .write-comment-container button {
+  margin: 10px 10px 0px 0px;
+  padding: 5px 15px 5px 15px;
+}
+/* line 112, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container {
+  height: auto;
+  padding-top: 40px;
+}
+/* line 115, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .profile-picture-outer-div {
+  position: relative;
+  float: left;
+  width: 10%;
+}
+/* line 118, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .profile-picture-outer-div .profile-pic {
+  position: relative;
+  float: left;
+  margin-left: -50%;
+  border-radius: 50%;
+  background: #D4D4D4;
+  width: 100%;
+  height: 60px;
+  margin-top: 0px;
+}
+/* line 128, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .comment {
+  border-left: 2px solid rgba(228, 228, 228, 0.59);
+}
+/* line 131, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .comment-content-panel {
+  position: relative;
+  float: left;
+  width: 90%;
+}
+/* line 134, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .comment-content-panel .header {
+  width: 100%;
+  border-bottom: 0px;
+  box-shadow: 0px 0px 0px;
+}
+/* line 138, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .comment-content-panel .header .commented-by {
+  color: #A0A0A0;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 150%;
+  color: darkturquoise;
+  font-size: 17px;
+}
+/* line 143, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .comment-content-panel .header .commented-on {
+  color: #A0A0A0;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 150%;
+  font-size: 13px;
+  color: #D8D8D8;
+  padding: 5px;
+}
+/* line 150, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .comment-content-panel p {
+  text-align: justify;
+  font-size: 14px;
+  line-height: 140%;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+/* line 158, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container hr {
+  border: 1px solid rgba(228, 228, 228, 0.59);
+  width: 100%;
+  position: relative;
+  float: left;
+  margin: 30px 0px 0px 0px !important;
+}
+/* line 165, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .reply {
+  position: relative;
+  float: left;
+}
+/* line 168, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .reply .hr-div {
+  position: relative;
+  float: left;
+  width: 10%;
+}
+/* line 172, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .reply .profile-pic {
+  margin-left: 0px;
+  height: 40px;
+}
+/* line 176, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .reply .profile-picture-outer-div {
+  padding: 5px;
+}
+/* line 179, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .reply .comment-content-panel {
+  padding-left: 15px;
+}
+/* line 182, ../sass/content_body_right_panel.scss */
+.content-body-right-panel .comments-container .reply .reply-content-panel {
+  position: relative;
+  float: left;
+  width: 90%;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+/* line 192, ../sass/content_body_right_panel.scss */
+.button {
+  font-size: 20px;
+  border-radius: 6px;
+  overflow: auto;
+}
+/* line 196, ../sass/content_body_right_panel.scss */
+.button i {
+  padding: 8px 15px 8px 15px !important;
+}
+
+/* line 201, ../sass/content_body_right_panel.scss */
+.no-more-to-move {
+  background-color: #B1B1B1;
+  color: white;
+}
+
+/* line 206, ../sass/content_body_right_panel.scss */
+.has-more-to-move {
+  background-color: darkturquoise !important;
+}
+/* line 208, ../sass/content_body_right_panel.scss */
+.has-more-to-move span {
+  color: white !important;
+  font-size: 12px !important;
+  padding: 8px 10px 8px 15px !important;
+  margin: 2px 4px 2px 4px;
+  letter-spacing: 1px;
+}
+/* line 215, ../sass/content_body_right_panel.scss */
+.has-more-to-move i {
+  color: white;
+  background-color: #0E92A2;
+}
+
+/* line 221, ../sass/content_body_right_panel.scss */
+.remove-border {
+  border: 0px !important;
+}
+
+/* line 225, ../sass/content_body_right_panel.scss */
+.dock-right {
+  position: relative !important;
+  float: right !important;
+}

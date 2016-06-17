@@ -1,0 +1,228 @@
+@import "mixins";
+
+$comment-profile-pic-div-width: 10%;
+$content-profile-pic-height: 60px;
+
+.content-body-right-panel {
+    padding: 30px 40px 30px 40px !important;
+    .header {
+        padding: 10px 0px 20px 0px;
+        border-bottom: 1px solid #E6E6E6;
+        font-size: 15px;
+        width: 100%;
+        display: inline-block;
+        box-shadow: 0px 1px 0px #D4D4D4;
+        span {
+            @include position-the-element-left;
+            font-size: 16px;
+            font-stretch: semi-condensed;
+            font-weight: 500;
+            color: darkturquoise;
+            font-family: sans-serif;
+        }
+        i {
+            padding: 0px 10px 0px 0px;
+        }
+        .button {
+            @include position-the-element-right;
+        }
+        .previous {
+            margin-right: 3%;
+        }
+    }
+    .lesson-content-pannel {
+        padding: 30px 0px 0px 0px;
+        display: inline-block;
+        .profile-pic {
+            border-radius: 50%;
+            background: #D4D4D4;
+            width: 100%;
+            height: 60px;
+            margin-top: 3px;
+        }
+        .heading {
+            font-size: x-large;
+            font-family: sans-serif;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .default-font {
+            @include default-font-style;
+        }
+        .mark-icon {
+            @include default-font-style;
+            color: #E6E6E6;
+            display: inline-block;
+            width: auto;
+            padding: 0px 10px 0px 10px;
+            border-right: 2px solid #E6E6E6;
+            span {
+                padding-right: 3px;
+            }
+        }
+        .instructor-name {
+            @include default-font-style;
+            color: darkturquoise;
+        }
+        .lesson-by {
+            display: inline-block;
+            padding-right: 20px;
+            width: auto;
+        }
+        .url {
+            color: darkturquoise;
+        }
+    }
+    .video-wrapper {
+        padding-top: 4%;
+        padding-bottom: 4%;
+        display: inline-table;
+        height: auto;
+    }
+    .content-text {
+        padding: 20px 0px 0px 0px;
+        p {
+            text-align: justify;
+        }
+    }
+    .comments-count {
+        color: red;
+    }
+    .question-and-comments-header {
+    	padding: 0px 0px 20px 0px;
+        .heading {
+            font-family: cursive;
+    		font-size: 20px;
+    		font-weight: bolder;
+    		color: #676767;
+        }
+    }
+    .write-comment-container {
+	    background-color: rgba(230, 239, 238, 0.49);
+    	padding: 20px 20px 15px 20px;
+	    border-radius: 5px;
+    	.comment-textbox {
+    		width: 100%
+    	}
+    	button {
+    		margin: 10px 10px 0px 0px;
+    		padding: 5px 15px 5px 15px;
+    	}
+    }
+    .comments-container {
+    	height: auto;
+    	padding-top: 40px;
+    	.profile-picture-outer-div {
+    		@include position-the-element-left;
+    		width: $comment-profile-pic-div-width;
+    		.profile-pic {
+				@include position-the-element-left;
+				margin-left: -50%;
+				border-radius: 50%;
+            	background: #D4D4D4;
+            	width: 100%;
+            	height: $content-profile-pic-height;
+            	margin-top: 0px;
+    		}
+    	}
+    	.comment {
+    		border-left: 2px solid rgba(228, 228, 228, 0.59);
+    	}
+    	.comment-content-panel {
+    		@include position-the-element-left;
+    		width: 100-$comment-profile-pic-div-width;
+    		.header {
+    			width: 100%;
+    			border-bottom: 0px;
+    			box-shadow: 0px 0px 0px;
+    			.commented-by {
+    				@include default-font-style;
+		            color: darkturquoise; 
+		            font-size: 17px; 
+    			}
+    			.commented-on {
+    				@include default-font-style;
+		            font-size: 13px; 	
+		            color: #D8D8D8;
+		            padding: 5px;
+    			}
+    		}
+    		p {
+    			text-align: justify;
+    			font-size: 14px;
+			    line-height: 140%;
+			    font-family: sans-serif;
+			    font-weight: 300;
+    		}
+    	}
+    	hr {
+			border: 1px solid rgba(228, 228, 228, 0.59);
+			width: 100%;
+			position: relative;
+			float: left;
+			margin: ($content-profile-pic-height/2) 0px 0px 0px !important;
+    	}
+    	.reply {
+    		position: relative;
+    		float: left;
+    		.hr-div {
+    			@include position-the-element-left;
+    			width: $comment-profile-pic-div-width;
+    		}
+    		.profile-pic {
+    			margin-left: 0px;
+    			height: 40px;
+    		}
+    		.profile-picture-outer-div {
+    			padding: 5px;
+    		}
+    		.comment-content-panel {
+    		    padding-left: 15px;
+    		}
+    		.reply-content-panel {
+    			@include position-the-element-left;
+    			width: 100 - $comment-profile-pic-div-width;
+    			padding-top: 5px;
+    			padding-left: 5px;
+    		}
+    	}
+    }
+}
+
+.button {
+    font-size: 20px;
+    border-radius: 6px;
+    overflow: auto;
+    i {
+        padding: 8px 15px 8px 15px !important;
+    }
+}
+
+.no-more-to-move {
+    background-color: #B1B1B1;
+    color: white;
+}
+
+.has-more-to-move {
+    background-color: darkturquoise !important;
+    span {
+        color: white !important;
+        font-size: 12px !important;
+        padding: 8px 10px 8px 15px !important;
+        margin: 2px 4px 2px 4px;
+        letter-spacing: 1px;
+    }
+    i {
+        color: white;
+        background-color: #0E92A2;
+    }
+}
+
+.remove-border {
+    border: 0px !important;
+}
+
+.dock-right {
+	position: relative !important;
+	float: right !important;
+}

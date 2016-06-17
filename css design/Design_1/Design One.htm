@@ -1,0 +1,151 @@
+
+<!-- saved from url=(0060)file:///Users/kalyan/css%20practice/Design_1/design_one.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link href="./Design One_files/print.css" media="print" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./Design One_files/ionicons.min.css">
+    <link href="./Design One_files/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="./Design One_files/ie.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./Design One_files/normalize.css">
+    <link href="./Design One_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./Design One_files/style.css">
+    <script src="./Design One_files/jquery.min.js"></script>
+    <script src="./Design One_files/app.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./Design One_files/data.json"></script>
+    <title>Design One</title>
+</head>
+
+<body>
+    <div id="top-panel" class="top-panel container-fluid">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="app-img col-xs-1"></div>
+            <div class="position-left col-xs-11">
+                <div class="col-xs-8">
+                    <ul>
+                        <li><a href="file:///Users/kalyan/css%20practice/Design_1/design_one.html#">Browse Courses</a></li>
+                        <li><a href="file:///Users/kalyan/css%20practice/Design_1/design_one.html#">Apps</a></li>
+                        <li><a href="file:///Users/kalyan/css%20practice/Design_1/design_one.html#">My Courses</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-4 remove-padding">
+                    <div class="col-xs-5 search-panel remove-padding">
+                        <span class="glyphicon glyphicon-search"></span>
+                        <input type="search" placeholder="Search">
+                    </div>
+                    <div class="col-xs-7 remove-padding profile-panel">
+                        <div class="col-xs-3 profile-pic"></div>
+                        <div class="col-xs-9 account-name">Jack Fernandas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content-body" class="col-sm-12 col-md-12 col-xs-12 remove-padding">
+        <div id="content-body-left-panel" class="content-body-left-panel">
+            <div class="course">COURSE</div>
+            <div id="course-heading" class="course-heading"></div>
+            <div class="course-by-pannel">
+                <div class="position-left">
+                    <div class="instructor-pic"></div>
+                    <div class="course-by-outer-div">
+                        <span class="course-by">Course by:</span><br>
+                        <span id="instructor-name" class="instructor-name"></span>
+                    </div>
+                </div>
+                <div class="line-div"></div>
+            </div>
+            <div class="learning-progress">
+                <div class="percentage">100%</div>
+                <div class="bar">
+                    <div class="white"></div>
+                    <div class="red"></div>
+                </div>
+            </div>
+            <div class="course-content">
+            </div>
+        </div>
+        <div class="content-body-right-panel container-fluid">
+            <div class="header">
+                <span><i class="glyphicon glyphicon-play-circle"></i>LESSON 4</span>
+                <div class="button next has-more-to-move">
+                    <span>Next Lesson</span><i class="ionicons ion-ios-arrow-forward"></i>
+                </div>
+                <div class="button previous no-more-to-move">
+                    <i class="ionicons ion-ios-arrow-back"></i>
+                </div>
+            </div>
+            <div class="lesson-content-pannel">
+                <div class="col-xs-9 remove-padding details">
+                    <div class="col-xs-1 remove-padding">
+                        <div class="profile-pic"></div>
+                    </div>
+                    <div class="col-xs-11 remove-padding">
+                        <div class="heading col-xs-12">Give team member decision making power.</div>
+                        <div class="col-xs-12">
+                            <div class="lesson-by">
+                                <span class="default-font">Lesson by:</span>
+                                <span class="instructor-name">Kyle Stempension</span>
+                            </div>
+                            <div class="mark-icon"><span class="ionicons ion-android-star"></span>Favorite</div>
+                            <div class="mark-icon"><span class="ionicons ion-leaf"></span>Reuse</div>
+                            <div class="mark-icon remove-border"><span class="ionicons ion-close-circled"></span>Mark Completed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 details remove-padding">
+                    <h5>LESSON RESOURCE</h5>
+                    <span class="default-font">teammember.pdf</span>
+                    <span class="url default-font">http://teammember.com</span>
+                    <span class="url default-font">http://powerdocument.com</span>
+                </div>
+                <div id="content-text" class="col-xs-12 default-font content-text">
+                </div>
+                <div class="col-xs-12 video-wrapper">
+                    <div id="videoContainer">
+                        <!-- Video -->
+                        <video id="video">
+                            <source src="video/video.mp4" type="video/mp4">
+                            <source src="video/video.ogg" type="video/ogg">
+                            <p>
+                                Your browser doesn't support HTML5 video.
+                                <a href="file:///Users/kalyan/css%20practice/Design_1/video/video.mp4">Download</a> the video instead.
+                            </p>
+                        </video>
+                        <!-- Video Controls -->
+                        <div id="videoControls">
+                            <input type="range" id="progressBar" value="0">
+                            <span id="progress"></span>
+                            <div id="buttonControls">
+                                <button id="play"><img id="playImg" src="./Design One_files/play-icon.png" alt="The play icon"></button>
+                                <span id="duration">00:00 / 01:00</span>
+                                <button id="fastFwd">1x Speed</button>
+                                <button id="fullScreen"><img id="fullScreenImg" src="./Design One_files/fullscreen-icon.png" alt="The fullscreen icon"></button>
+                                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+                                <button id="mute"><img id="muteImg" src="./Design One_files/volume-on-icon.png" alt="The mute icon"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 question-and-comments-container">
+                    <div class="col-xs-12 question-and-comments-header">
+                        <span class="heading">Questions &amp; Comments</span>
+                        <div class="default-font dock-right">
+                            <span class="ionicons ion-chatboxes"></span>
+                            <span class="comments-count">19</span> Comments
+                        </div>
+                    </div>
+                    <div class="write-comment-container col-xs-12">
+                        <div class="col-xs-1 remove-padding">
+                            <div class="profile-pic"></div>
+                        </div>
+                        <div class="col-xs-11">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
+                        <div class="col-xs-12 remove-padding">
+                            <button type="button" class="btn btn-primary dock-right">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body></html>
