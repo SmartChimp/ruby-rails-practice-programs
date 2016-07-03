@@ -1,0 +1,89 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$blanket-height: 650px;
+.logo {
+    font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+    font-size: 30px;
+}
+
+.nav li:visited .nav li:hover {
+    background-color: black !important;
+    text-decoration: none !important;
+}
+
+#blanket {
+    background-color: #111;
+    opacity: 0.65;
+    position: absolute;
+    z-index: 9001;
+    width: 100%;
+    height: $blanket-height;
+}
+
+#popUpDiv {
+    position: absolute;
+    height: auto;
+    z-index: 9002;
+}
+
+.formholder {
+    background: #ecf0f1;
+    border-radius: 5px;
+    padding: 3%;
+    top: 175px;
+    text-align: -webkit-center;
+    label {
+        float: left;
+    }
+    input[type="email"],
+    input[type="text"],
+    input[type="password"] {
+        padding: 7px 5px;
+        margin: 10px 0;
+        width: 96%;
+        display: block;
+        font-size: 18px;
+        border-radius: 5px;
+        border: none;
+        -webkit-transition: 0.3s linear;
+        -moz-transition: 0.3s linear;
+        -o-transition: 0.3s linear;
+        transition: 0.3s linear;
+    }
+    input[type="email"]:focus,
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        outline: none;
+        box-shadow: 0 0 1px 1px #1abc9c;
+    }
+    input[type="submit"] {
+        background: #1a3e5d;
+        padding: 8px;
+        margin-top: 20px;
+        font-size: 15px;
+        display: block;
+        width: 25%;
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+    }
+    input[type="submit"]:hover {
+        background: #428bca;
+    }
+    fieldset {
+        border: none;
+    }
+}
+
+.signup {
+    top: 110px;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}

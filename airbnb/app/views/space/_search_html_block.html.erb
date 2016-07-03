@@ -1,0 +1,28 @@
+<div class="search-wrapper">
+    <form name="search-form">
+        <input type="hidden" id="city-name-hidden-elem" name="search[city_id]" />
+        <input class="form-control city-txt-box" name="city-name-txt-box" type="text" placeholder="City">
+        <label class="pull-left">From</label>
+        <div class="input-group date date-picker-wrapper pull-left" data-provide="datepicker">
+            <input type="text" class="form-control datepicker" name="search[from]">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+        <label class="pull-left">To</label>
+        <div class="input-group date date-picker-wrapper pull-left" data-provide="datepicker">
+            <input type="text" class="form-control datepicker" name="search[to]">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+        <label class="touch-spin-lbl pull-left">Guests</label>
+        <div class="touch-spin pull-left">
+            <input class="form-control" id="guests-count" name="search[guests_count]" value="1" type="text" placeholder="No. of guests">
+        </div>
+        <button type="button" class="btn btn-primary search-button" onclick="return listSpaces(this, <%= renderingJsCallback %>)">Search</button>
+    </form>
+</div>
+<script>
+initSearchBlock();
+</script>

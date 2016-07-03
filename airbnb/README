@@ -1,0 +1,23 @@
+Execute bellow commands in terminal to start with the app,
+
+
+$rake db:migrate
+$rake db:seed
+$rails s
+
+Use cases:
+---------------
+1. Sign up from new account.
+2. Login with email credentials.
+3. Search for spaces with criteria of city, from and to date.
+4. User can list there spaces by adding to system.
+5. Lists the spaces added by that user.
+
+Features:
+---------------
+
+1. Any user can search for spaces from home screen.
+2. User can list their space by login into the system.
+3. User can able to search and reserve spaces from their dashboard.
+
+

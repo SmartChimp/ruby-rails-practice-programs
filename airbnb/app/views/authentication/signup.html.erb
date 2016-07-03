@@ -1,0 +1,13 @@
+<form name="signup">
+    <fieldset>
+        <label name="firstname_lbl">Firstname</label>
+        <input id="firstname" name="firstname" type="text" onfocus="removeErrClass(this)" />
+        <label name="lastname_lbl">Lastname</label>
+        <input id="lastname" name="lastname" type="text" onfocus="removeErrClass(this)"/>
+        <label name="email_lbl">Email</label>
+        <input id="email" name="email" type="email" onfocus="removeErrClass(this)"/>
+        <label name="password_lbl">Password</label>
+        <input id="password" name="password" type="password" onfocus="removeErrClass(this)"/>
+        <input data-action="/signup" data-method="post" class="form-submit" onclick="return signupFormSubmit(this)" type="submit" value="Submit" />
+    </fieldset>
+</form>

@@ -1,0 +1,10 @@
+<form name="login" action="">
+    <fieldset>
+        <div class="alert alert-danger display-none" id="error-div"></div>
+        <label>Email</label>
+        <input id="login-email" name="email" type="email" onfocus="removeErrClass(this)"/>
+        <label>Password</label>
+        <input id="login-password" name="password" type="password" onfocus="removeErrClass(this)"/>
+        <input type="submit" value="Login" data-action="/login" onclick="return loginSubmitForm(this)" />
+    </fieldset>
+</form>

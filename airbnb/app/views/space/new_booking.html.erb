@@ -1,0 +1,24 @@
+<div class="alert alert-success success_message hide">
+	<a href="#" class="close" data-dismiss="alert" onclick="return hideSuccessMessage()" aria-label="close">&times;</a>
+	Your reservation has been confirmed.
+</div>
+<div class="alert alert-info info_message hide">
+    <a href="#" class="close" data-dismiss="alert" onclick="return hideInfoMessage()" aria-label="close">&times;</a>
+    No listings on given criteria.
+</div>
+<div class="search-outer-div pad-top-left-45-60">
+    <%= render partial: "space/search_html_block", locals: { renderingJsCallback: "searchResponseRenderingCallbackOnUserSession"} %>
+</div>
+<div class="spaces-list left-panel" id="spaces-list">
+</div>
+<div class="right-panel space-in-details">
+</div>
+<script>
+$('.left-panel').resize(function() {
+    if ($(this).width() < 900) {
+        $('.spaces-list .space-wrapper').removeClass('col-lg-6');
+    } else {
+        $('.spaces-list .space-wrapper').addClass('col-lg-6');
+    }
+});
+</script>

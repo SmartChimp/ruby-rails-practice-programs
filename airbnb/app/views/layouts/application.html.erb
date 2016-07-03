@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Airbnb</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Architects+Daughter" />
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <script src="/assets/holder.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/3.1.1/jquery.bootstrap-touchspin.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/3.1.1/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <%= csrf_meta_tags %>
+</head>
+
+<body>
+    <div id="blanket" onclick="popup('popUpDiv')" style="display:none;"></div>
+    <div id="popUpDiv" class="formholder col-xs-4 col-xs-offset-4" style="display:none;">
+    </div>
+    <div class="container">
+        <nav class="navbar">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" href="/">Cuckoo</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right <%= session[:user_id] %>">
+
+                    <% if session[:user_id] == nil %>
+                        <li>
+                            <%= link_to "Log In", "#", id: "login", "data-popup": "true", 
+                            "data-url": "/login", class: "get-call" %>
+                        </li>
+                        <li>
+                            <%= link_to "Sign Up", "#", id: "signup", "data-popup": "true", "data-url": "/signup", class: "get-call" %>
+                        </li>
+                    <% else %>
+                        <li>
+                            <%= link_to session[:user_firstname], "/dashboard" %>
+                        </li>
+                        <li>
+                            <%= link_to "Logout", "#", id: "signup", "data-popup": "false", "data-url": "/logout", class: "get-call" %>
+                        </li>   
+                    <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div class="container-fluid">
+            <%= yield %>
+        </div>
+    </div>
+</body>
+
+</html>
