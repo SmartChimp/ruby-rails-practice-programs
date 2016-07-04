@@ -42,7 +42,7 @@ function loginSubmitForm(element) {
             success: function(data, status) {
                 if (data.status == 'success') {
                     window.location = "/dashboard";
-                } else if (data.status == 'failure') {
+                } else if (data.status == 'error') {
                     $('#error-div').html(data.error_message);
                     $('#error-div').removeClass('display-none').addClass('display-block');
                 }

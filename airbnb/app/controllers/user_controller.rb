@@ -1,17 +1,16 @@
 class UserController < ApplicationController
 
 	def add_user
-		response = Hash.new
-		salt_value, password_diggest = UserService.instance().get_password_digest(params[:password])
-		@user = User.new email: params[:email], firstname: params[:firstname], lastname: params[:lastname], password_diggest: password_diggest, salt: salt_value
+		user_request = AddUser.new params[:user]
 		response = Hash.new
 
-		if @user.valid? && @user.save
-			session[:user_id] = User.find_by_email(params[:email]).id
-			session[:user_firstname] = params[:firstname]
+		if UserService.instance().add_user(user_request) 
+			@user = User.find_by_email(user_request.email)
+			session[:user_id] = @user.id
+			session[:user_firstname] = user_request.firstname
 			response[:status] = "success"
 		else
-			response = @user.errors
+			response[:status] = "error"
 		end
 		render json: response
 	end
