@@ -4,7 +4,7 @@ class ResponseUtils
 	@@PASS_ERR = "PASS_ERR"
 	@@SUCCESS = "SUCCESS"
 	@@ERROR = "ERROR"
-
+	@@SPACE_NOT_AVAILABLE = "SPACE_NOT_AVAILABLE"
 
 	include Singleton
 
@@ -14,6 +14,7 @@ class ResponseUtils
 		@RESPONSE_MESSAGE_MAP[@@PASS_ERR] = "Invalid password."
 		@RESPONSE_MESSAGE_MAP[@@SUCCESS] = "success"
 		@RESPONSE_MESSAGE_MAP[@@ERROR] = "error"
+		@RESPONSE_MESSAGE_MAP[@@SPACE_NOT_AVAILABLE] = "Requested space is not available now."
 	end
 
 	public 
@@ -40,4 +41,9 @@ class ResponseUtils
 	def self.PASS_ERR
 		@@PASS_ERR
 	end
+
+	def self.SPACE_NOT_AVAILABLE
+		@@SPACE_NOT_AVAILABLE
+	end
+
 end

@@ -7,6 +7,7 @@ class SpaceController < ApplicationController
 		@room_service = RoomService.instance()
 		@city_service = CityService.instance()
 		@reserve_service = ReservationService.instance()
+		@response_helper = ResponseUtils.instance()
 	end
 
 	def list_user_space
@@ -35,9 +36,17 @@ class SpaceController < ApplicationController
 	end
 
 	def reserve
-		reserve_space = ReserveSpace.new params[:reserve]
-		reserve_space.user_id = session[:user_id]
-		@reserve_service.reserve(reserve_space)? render(nothing: true) : render(nothing: false)
+		begin
+			reserve_space = ReserveSpace.new params[:reserve]
+			reserve_space.user_id = session[:user_id]
+			if (@reserve_service.reserve(reserve_space) == 1) 
+				render json: @response_helper.get_response_object(ResponseUtils.SUCCESS) 
+			else 
+				render json: @response_helper.get_response_object(ResponseUtils.ERROR, ResponseUtils.SPACE_NOT_AVAILABLE)
+			end
+		rescue Exception => e
+			render json: @response_helper.get_response_object(ResponseUtils.ERROR, ResponseUtils.SPACE_NOT_AVAILABLE)
+		end
 	end
 
 	def new_booking

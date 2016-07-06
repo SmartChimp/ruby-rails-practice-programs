@@ -81,4 +81,6 @@ Airbnb::Application.routes.draw do
   post '/reserve_space' => 'space#reserve'
 
   get '/new-booking' => 'space#new_booking'
+
+  get '/your_bookings' => 'reservation#user_bookings'
 end

@@ -83,6 +83,7 @@ function addSpace(element) {
                     type: 'GET',
                     success: function(data, status) {
                         $('#dashboard-body-content').empty().html(data);
+                        Holder.run();
                     }
                 });   
             }
@@ -111,6 +112,7 @@ function clickEventOnMenuItem() {
             type: 'GET',
             success: function(data, status) {
                 $('#dashboard-body-content').html(data);
+                Holder.run();
             }
         });
         return false;
@@ -120,15 +122,13 @@ function clickEventOnMenuItem() {
 
 function initListingPage() {
     $('#add-space-icon').click(function() {
-        $(".body-content .right-panel").toggleClass('transform-right-panel');
-        $(".body-content .left-panel").toggleClass('transform-left-panel');
+        toggleRightAndLeftPanel();
         $(".right-panel #form-div").toggleClass('transform-form-div');
         $("#form-div .form-component").toggleClass('transform-form-component');
         $(this).hide(100);
     });
     $('#close-icon').click(function() {
-        $(".body-content .right-panel").toggleClass('transform-right-panel');
-        $(".body-content .left-panel").toggleClass('transform-left-panel');
+        toggleRightAndLeftPanel();
         $(".right-panel #form-div").toggleClass('transform-form-div');
         $("#form-div .form-component").toggleClass('transform-form-component');
         $('#add-space-icon').show(200);
@@ -150,6 +150,11 @@ function initListingPage() {
     });
     addAutoCompleteForCity($('input[name="city"]'), $("input[name=\"space[city_id]\"]"));
     Holder.addTheme("my-theme", { bg: "#ffadad", fg: "white" }).run();
+}
+
+function toggleRightAndLeftPanel() {
+    $(".body-content .right-panel").toggleClass('transform-right-panel');
+    $(".body-content .left-panel").toggleClass('transform-left-panel');
 }
 
 function addAutoCompleteForCity(txtBoxElem, hiddenElem) {
@@ -227,6 +232,10 @@ function searchResponseRenderingCallbackWithoutLogin(data, from, to) {
 
 function searchResponseRenderingCallbackOnUserSession(data, from, to) {
     var spaceElementWrapper = $("#spaces-list").empty();
+    if($(".body-content .right-panel").hasClass("transform-right-panel")) {
+        $(".body-content .right-panel").removeClass('transform-right-panel'); 
+        $(".body-content .left-panel").removeClass('transform-left-panel');
+    }
     if (data.spaces.length > 0) {
         for (space of data.spaces) {
             spaceElementWrapper.append($('<div>').addClass('col-xs-12 col-md-12 col-lg-6 space-wrapper').append($('<div>')
@@ -276,13 +285,12 @@ function expandSpaceDetailsInRightPanel(elem) {
     var from = $(elem).siblings('input[type="hidden"][name = "from"]').val();
     var to = $(elem).siblings('input[type="hidden"][name = "to"]').val();
     var space = JSON.parse($(elem).siblings('input[type="hidden"][name = "space-json"]').val());
-    $(".body-content .right-panel").toggleClass('transform-right-panel');
+    $(".body-content .right-panel").empty().toggleClass('transform-right-panel');
     $(".body-content .left-panel").toggleClass('transform-left-panel');
     var dateArray = from.split('/');
     var fromDate = new Date(dateArray[2]+'-'+dateArray[0]+'-'+dateArray[1]);
     dateArray = to.split('/');
     var toDate = new Date(dateArray[2]+'-'+dateArray[0]+'-'+dateArray[1]);
-    debugger;    
 
     $(".body-content .right-panel")
         .append($('<img>').attr('src', 'holder.js/100px300?theme=my-theme&text=Yet to upload... '))
@@ -303,16 +311,21 @@ function reserveSpace(from, to, spaceId) {
         type: 'POST',
         data: 'reserve[from]='+from+'&reserve[to]='+to+'&reserve[space_id]='+spaceId,
         success: function(data, status) {
-            $('.city-txt-box').val('');
-            $('#city-name-hidden-elem').val('');
-            $('input[name="search\[from\]"]').val('');
-            $('input[name="search\[to\]"]').val('');
-            $('#guests-count').val('1');
-            $('.left-panel').empty();
-            $('.right-panel').empty();
-            $(".body-content .right-panel").toggleClass('transform-right-panel');
-            $(".body-content .left-panel").toggleClass('transform-left-panel');
-            $('.success_message').removeClass('hide').addClass('show');
+            if(data.status == 'success') {
+                $('.city-txt-box').val('');
+                $('#city-name-hidden-elem').val('');
+                $('input[name="search\[from\]"]').val('');
+                $('input[name="search\[to\]"]').val('');
+                $('#guests-count').val('1');
+                $('.left-panel').empty();
+                $('.right-panel').empty();
+                $(".body-content .right-panel").toggleClass('transform-right-panel');
+                $(".body-content .left-panel").toggleClass('transform-left-panel');
+                $('.success_message').removeClass('hide').addClass('show');   
+            } else if(data.status == 'error')  {
+                $('.err_message .message').empty().append(data.error_message)
+                $('.err_message').removeClass('hide').addClass('show');
+            }
         }
     });
 }
@@ -410,5 +423,11 @@ function hideSuccessMessage() {
 
 function hideInfoMessage() {
     $('.info_message').removeClass('show').addClass('hide');
+    return false;   
+}
+
+
+function hideErrMessage() {
+    $('.err_message').removeClass('show').addClass('hide');
     return false;   
 }

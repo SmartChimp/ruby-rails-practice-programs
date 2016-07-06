@@ -6,6 +6,10 @@
     <a href="#" class="close" data-dismiss="alert" onclick="return hideInfoMessage()" aria-label="close">&times;</a>
     No listings on given criteria.
 </div>
+<div class="alert alert-danger err_message hide">
+    <a href="#" class="close" data-dismiss="alert" onclick="return hideErrMessage()" aria-label="close">&times;</a>
+    <div class="message"></div>
+</div>
 <div class="search-outer-div pad-top-left-45-60">
     <%= render partial: "space/search_html_block", locals: { renderingJsCallback: "searchResponseRenderingCallbackOnUserSession"} %>
 </div>
