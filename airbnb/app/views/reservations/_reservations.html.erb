@@ -1,22 +1,21 @@
-<div class="col-xs-12 col-md-12 col-lg-6 space-wrapper">
+<div class="col-xs-12 space-wrapper">
     <div class="space-border">
         <div class="space">
             <div class="image-wrapper col-xs-6 col-md-6 no-padding pull-left">
                 <img src="holder.js/100px200?theme=my-theme&text=Yet to upload..." />
             </div>
             <div class="col-xs-6 col-md-6 no-padding pull-left">
-                <div class="profile-pic-wrapper pull-left"><img class="profile-pic" src="" /></div>
                 <div class="space-description pull-left">
                     <div class="room-type">
-                        <%= space.room.room_type %>
+                        <%= Airbnb::ROOM_TYPES[reservation.space.room_type] %>
                     </div>
                     <div>
-                        @<%= space.city.name.camelize %>
+                        @<%= reservation.space.city.name.camelize %>
                     </div>
                     <div>
-                        <%= space.beds_count %> beds available.</div>
+                        <%= reservation.space.beds_count %> beds available.</div>
                     <div>Costs
-                        <%= space.cost_per_day %>&#x20b9; per day.
+                        <%= reservation.space.cost_per_day %>&#x20b9; per day.
                     </div>
                 </div>
             </div>

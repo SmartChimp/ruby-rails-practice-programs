@@ -230,6 +230,9 @@
         transition: width 0.4s, height 4s;
         position: relative;
         float: left;
+        .err_message {
+            margin-top: 40px;
+        }
     }
     .transform-right-panel {
         width: 40%;

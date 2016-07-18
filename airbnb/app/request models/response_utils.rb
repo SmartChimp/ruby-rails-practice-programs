@@ -5,6 +5,9 @@ class ResponseUtils
 	@@SUCCESS = "SUCCESS"
 	@@ERROR = "ERROR"
 	@@SPACE_NOT_AVAILABLE = "SPACE_NOT_AVAILABLE"
+	@@ADD_SPACE_ERR = "ADD_SPACE_ERR"
+	@@INVALID_ROOM_TYPE = "INVALID_ROOM_TYPE"
+	@@INVALID_HOME_TYPE = "INVALID_HOME_TYPE"
 
 	include Singleton
 
@@ -15,6 +18,9 @@ class ResponseUtils
 		@RESPONSE_MESSAGE_MAP[@@SUCCESS] = "success"
 		@RESPONSE_MESSAGE_MAP[@@ERROR] = "error"
 		@RESPONSE_MESSAGE_MAP[@@SPACE_NOT_AVAILABLE] = "Requested space is not available now."
+		@RESPONSE_MESSAGE_MAP[@@ADD_SPACE_ERR] = "Space could not be added."
+		@RESPONSE_MESSAGE_MAP[@@INVALID_ROOM_TYPE] = "Invalid room type."
+		@RESPONSE_MESSAGE_MAP[@@INVALID_HOME_TYPE] = "Invalid home type."
 	end
 
 	public 
@@ -22,6 +28,7 @@ class ResponseUtils
 	def get_response_object(status, *arg)
 		response = Hash.new
 		response[:status] = @RESPONSE_MESSAGE_MAP[status]
+		puts "message args : #{arg[0]}"
 		response[:error_message] = @RESPONSE_MESSAGE_MAP[arg[0]]
 		return response
 	end
@@ -46,4 +53,15 @@ class ResponseUtils
 		@@SPACE_NOT_AVAILABLE
 	end
 
+	def self.set_error_message(response, err_msg)
+		response[:error_message] = err_msg
+	end
+
+	def self.INVALID_HOME_TYPE
+		@@INVALID_HOME_TYPE
+	end
+
+	def self.INVALID_ROOM_TYPE
+		@@INVALID_ROOM_TYPE
+	end
 end

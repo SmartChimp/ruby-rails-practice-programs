@@ -64,23 +64,18 @@ Airbnb::Application.routes.draw do
 
   get '/signup' => 'authentication#signup', as: 'signup'
 
-  post '/signup' => 'user#add_user'
+  post '/signup' => 'user#add'
 
   get '/logout' => 'authentication#logout', as: 'logout'
 
-  get '/dashboard' => 'dashboard#dashboard', as: 'dashboard'
+  get '/query_cities' => 'spaces#get_cities'  
 
-  get '/your_listings' => 'space#list_user_space'
+  resources :spaces do
+    collection do
+      get 'search'
+    end
+  end
+  resource :dashboard
+  resources :reservations
 
-  post '/add_space' => 'space#add_space'
-
-  get '/query-cities' => 'space#get_cities'
-
-  get '/space_search' => 'space#search'
-
-  post '/reserve_space' => 'space#reserve'
-
-  get '/new-booking' => 'space#new_booking'
-
-  get '/your_bookings' => 'reservation#user_bookings'
 end

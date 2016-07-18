@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 
-	def add_user
+	def add
 		user_request = AddUser.new params[:user]
 		response = Hash.new
 

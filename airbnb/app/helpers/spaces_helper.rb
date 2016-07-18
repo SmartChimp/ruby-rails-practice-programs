@@ -1,4 +1,4 @@
-module SpaceHelper
+module SpacesHelper
 	module ConstructJSONResponse
 		def self.for_cities_like(cities)
 			response_txt = "["

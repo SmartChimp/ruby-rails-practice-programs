@@ -10,6 +10,11 @@
 <div class="right-panel">
     <div id="form-div">
         <i id="close-icon" class="ionicons ion-android-close"></i>
+
+        <div class="alert alert-danger err_message hide">
+            <a href="#" class="close" data-dismiss="alert" onclick="return hideErrMessage()" aria-label="close">&times;</a>
+            <div class="message"></div>
+        </div>
         <form>
             <fieldset>
                 <label class="form-component" for="city">City</label>
@@ -17,19 +22,19 @@
                 <input class="form-control" name="city" type="text" placeholder="City" onfocus="removeErrClass(this)" >
                 <label for="home-type" class="form-component">Home type</label>
                 <div>
-                    <% @home_types.each do |home| %>
+                    <% Airbnb::HOME_TYPES.each do |home| %>
                         <label>
-                            <input type="radio" name="space[home_id]" value="<%= home.id %>" />
-                            <%= home.home_type %>
+                            <input type="radio" name="space[home_type]" value="<%= home[0] %>" />
+                            <%= home[1] %>
                         </label>
                         <% end %>
                 </div>
-                <label for="romm-type" class="form-component">Room type</label>
+                <label for="room-type" class="form-component">Room type</label>
                 <div>
-                    <% @room_types.each do |room| %>
+                    <% Airbnb::ROOM_TYPES.each do |room| %>
                         <label>
-                            <input type="radio" name="space[room_id]" value="<%= room.id %>" />
-                            <%= room.room_type %>
+                            <input type="radio" name="space[room_type]" value="<%= room[0] %>" />
+                            <%= room[1] %>
                         </label>
                         <% end %>
                 </div>
@@ -51,7 +56,7 @@
                 <input name="space[cost_per_day]" type="text" placeholder="in rupees." onfocus="removeErrClass(this)" >
                 <br>
                 <div class="submit-form-btn-wrapper">
-                    <input data-action="/add_space" type="submit" class="btn btn-primary" value="Submit" onclick="return addSpace(this)" />
+                    <input data-action="/spaces" type="submit" class="btn btn-primary" value="Submit" onclick="return addSpace(this)" />
                 </div>
             </fieldset>
         </form>

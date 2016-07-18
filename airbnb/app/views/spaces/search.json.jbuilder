@@ -5,8 +5,8 @@ json.spaces @spaces do |space|
 	json.cost_per_day space.cost_per_day
 	json.no_of_bathrooms space.bathrooms_count
 	json.no_of_beds space.beds_count
-	json.home_type space.home.home_type
-	json.room_type space.room.room_type
+	json.home_type Airbnb::HOME_TYPES[space.home_type]
+	json.room_type Airbnb::ROOM_TYPES[space.room_type]
 	json.user do 
 		json.id space.user.id
 		json.fristname space.user.firstname

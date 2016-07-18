@@ -61,7 +61,7 @@ function signupFormSubmit(element) {
             success: function(data, status) {
                 if (data.status == 'success') {
                     window.location = "/dashboard";
-                } else if (data.status == 'failure') {
+                } else if (data.status == 'error') {
                     $('#error-div').html(data.error_message);
                     $('#error-div').removeClass('display-none').addClass('display-block');
                 }
@@ -78,14 +78,20 @@ function addSpace(element) {
             type: 'POST',
             data: $(element).parents('form').serialize(),
             success: function(data, status) {
-                $.ajax({
-                    url: '/your_listings',
-                    type: 'GET',
-                    success: function(data, status) {
-                        $('#dashboard-body-content').empty().html(data);
-                        Holder.run();
-                    }
-                });   
+                if(data.status == 'success') {
+                    $.ajax({
+                        url: '/spaces',
+                        type: 'GET',
+                        success: function(data, status) {
+                            $('#dashboard-body-content').empty().html(data);
+                            Holder.run();
+                        }
+                    });    
+                } else if(data.status == 'error') {
+                    $('.err_message .message').empty().append(data.error_message)
+                    $('.err_message').removeClass('hide').addClass('show');
+                }
+                   
             }
         });
     }
@@ -161,7 +167,7 @@ function addAutoCompleteForCity(txtBoxElem, hiddenElem) {
     txtBoxElem.autocomplete({
         source: function(request, response) {
             jQuery.getJSON(
-                "./query-cities?q=" + request.term,
+                "./query_cities?q=" + request.term,
                 function(data) {
                     response(data);
                 }
@@ -230,7 +236,7 @@ function searchResponseRenderingCallbackWithoutLogin(data, from, to) {
     
 }
 
-function searchResponseRenderingCallbackOnUserSession(data, from, to) {
+function searchResponseRenderingCallbackOnUserSession(data, from, to, guestsCount) {
     var spaceElementWrapper = $("#spaces-list").empty();
     if($(".body-content .right-panel").hasClass("transform-right-panel")) {
         $(".body-content .right-panel").removeClass('transform-right-panel'); 
@@ -253,6 +259,7 @@ function searchResponseRenderingCallbackOnUserSession(data, from, to) {
                                 .append($('<input>').attr('name', 'space-json').attr('type', 'hidden').val(JSON.stringify(space)))
                                 .append($('<input>').attr('name', 'from').attr('type', 'hidden').val(from))
                                 .append($('<input>').attr('name', 'to').attr('type', 'hidden').val(to))
+                                .append($('<input>').attr('name', 'guests-count').attr('type', 'hidden').val(guestsCount))
                                 .append($('<button>').attr('type', 'button').addClass('btn btn-primary').attr('onclick', 'expandSpaceDetailsInRightPanel(this)').append('Reserve')))))));
         }
         Holder.run();
@@ -270,12 +277,13 @@ function listSpaces(elem, searchResponseRenderingCallback) {
     if(validateSearchForm()) {
         var from = $("input[name=\"search\[from\]\"]").val();
         var to = $("input[name=\"search\[to\]\"]").val();
+        var guestsCount = $("input[name=\"search\[guests_count\]\"]").val();
         $.ajax({
-            url: '/space_search.json',
+            url: '/spaces/search.json',
             data: $(elem).parents('form').serialize(),
             type: "GET",
             success: function(data) {
-                searchResponseRenderingCallback(data, from, to);
+                searchResponseRenderingCallback(data, from, to, guestsCount);
             }
         });
     }
@@ -284,6 +292,7 @@ function listSpaces(elem, searchResponseRenderingCallback) {
 function expandSpaceDetailsInRightPanel(elem) {
     var from = $(elem).siblings('input[type="hidden"][name = "from"]').val();
     var to = $(elem).siblings('input[type="hidden"][name = "to"]').val();
+    var guestsCount = $(elem).siblings('input[type="hidden"][name = "guests-count"]').val();
     var space = JSON.parse($(elem).siblings('input[type="hidden"][name = "space-json"]').val());
     $(".body-content .right-panel").empty().toggleClass('transform-right-panel');
     $(".body-content .left-panel").toggleClass('transform-left-panel');
@@ -301,15 +310,15 @@ function expandSpaceDetailsInRightPanel(elem) {
         .append($('<div>').append('Per day costs : '+ space.costPerDay))
         .append($('<div>').append('Pricing : '+(Math.round((toDate-fromDate)/(1000*60*60*24))+1) * space.costPerDay))
         .append($('<div>').addClass('button-div').append($('<button>').attr('type', 'submit')
-                            .attr('onclick', 'return reserveSpace("'+from+'","'+to+'","'+space.id+'")').addClass('btn btn-primary pull-right').append('Confirm')));
+                            .attr('onclick', 'return reserveSpace("'+from+'","'+to+'","'+space.id+'","'+guestsCount+'")').addClass('btn btn-primary pull-right').append('Confirm')));
     Holder.run();
 }
 
-function reserveSpace(from, to, spaceId) {
+function reserveSpace(from, to, spaceId, guestsCount) {
     $.ajax({
-        url: '/reserve_space',
+        url: '/reservations',
         type: 'POST',
-        data: 'reserve[from]='+from+'&reserve[to]='+to+'&reserve[space_id]='+spaceId,
+        data: 'reserve[from]='+from+'&reserve[to]='+to+'&reserve[space_id]='+spaceId+'&reserve[guests_count]='+guestsCount,
         success: function(data, status) {
             if(data.status == 'success') {
                 $('.city-txt-box').val('');
@@ -356,10 +365,10 @@ function validateAddSpaceForm() {
         elementSelector : 'input[name="city"]',
         validatorFunction : validation.emptyCheck
     }, {
-        elementSelector : 'input[name="space\[home_id\]"]:checked',
+        elementSelector : 'input[name="space\[home_type\]"]:checked',
         validatorFunction : validation.emptyCheck
     }, {
-        elementSelector : 'input[name="space\[room_id\]"]:checked',
+        elementSelector : 'input[name="space\[room_type\]"]:checked',
         validatorFunction : validation.emptyCheck
     }, {
         elementSelector : 'input[name="space\[address\]"]',

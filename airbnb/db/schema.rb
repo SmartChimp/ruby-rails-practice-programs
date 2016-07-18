@@ -25,36 +25,27 @@ ActiveRecord::Schema.define(:version => 20160627092450) do
     t.string   "name"
   end
 
-  create_table "homes", :force => true do |t|
-    t.string   "home_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "reservations", :force => true do |t|
     t.date     "to_date"
     t.date     "from_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "no_of_guests"
+    t.integer  "city_id"
+    t.integer  "room_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "user_id"
     t.integer  "space_id"
-  end
-
-  create_table "rooms", :force => true do |t|
-    t.string   "room_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "spaces", :force => true do |t|
     t.string   "address"
     t.float    "cost_per_day"
+    t.integer  "home_type"
+    t.integer  "room_type"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "user_id"
     t.integer  "city_id"
-    t.integer  "home_id"
-    t.integer  "room_id"
     t.integer  "beds_count"
     t.integer  "max_guests_count"
     t.integer  "bathrooms_count"

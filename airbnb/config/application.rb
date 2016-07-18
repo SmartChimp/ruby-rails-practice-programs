@@ -10,6 +10,12 @@ if defined?(Bundler)
 end
 
 module Airbnb
+  SHARED_ROOM = 2
+  HOME_TYPES = { 1 => "Apartment", 2 => "House", 3 => "Bed & Breakfast" }
+  ROOM_TYPES = { 1 => "Entire home", SHARED_ROOM => "Shared room", 3 => "Private room" }
+  
+
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
