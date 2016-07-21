@@ -72,6 +72,7 @@ function signupFormSubmit(element) {
 }
 
 function addSpace(element) {
+    debugger;
     if(validateAddSpaceForm()) {
         $.ajax({
             url: element.getAttribute('data-action'),
@@ -300,6 +301,16 @@ function expandSpaceDetailsInRightPanel(elem) {
     var fromDate = new Date(dateArray[2]+'-'+dateArray[0]+'-'+dateArray[1]);
     dateArray = to.split('/');
     var toDate = new Date(dateArray[2]+'-'+dateArray[0]+'-'+dateArray[1]);
+    var price, costPerDay;
+    if(space.roomType == 'Shared room') {
+        costPerDay = ((space.costPerDay/space.maxGuestsCount)*guestsCount);
+        price = (Math.round((toDate-fromDate)/(1000*60*60*24))+1) * costPerDay;
+        
+    } else {
+        costPerDay = space.costPerDay;
+        price = (Math.round((toDate-fromDate)/(1000*60*60*24))+1) * costPerDay;
+    }
+
 
     $(".body-content .right-panel")
         .append($('<img>').attr('src', 'holder.js/100px300?theme=my-theme&text=Yet to upload... '))
@@ -307,8 +318,9 @@ function expandSpaceDetailsInRightPanel(elem) {
         .append($('<div>').append('Address : '+ space.address))
         .append($('<div>').append('Location : '+ space.city))
         .append($('<div>').append('Type of home : '+ space.homeType))
-        .append($('<div>').append('Per day costs : '+ space.costPerDay))
-        .append($('<div>').append('Pricing : '+(Math.round((toDate-fromDate)/(1000*60*60*24))+1) * space.costPerDay))
+        .append($('<div>').append('Per day costs : '+ costPerDay))
+        .append($('<div>').append('Guests : '+ guestsCount))
+        .append($('<div>').append('Pricing : '+ price))
         .append($('<div>').addClass('button-div').append($('<button>').attr('type', 'submit')
                             .attr('onclick', 'return reserveSpace("'+from+'","'+to+'","'+space.id+'","'+guestsCount+'")').addClass('btn btn-primary pull-right').append('Confirm')));
     Holder.run();

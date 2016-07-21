@@ -15,7 +15,6 @@ class SpacesController < ApplicationController
 		return render "welcome/home" if !is_user_session_exists?
     space = Space.new params[:space]
     if !space.valid?
-    	puts "value is #{space.errors[:base]}"
     	return render json: @response_helper.get_response_object(ResponseUtils.ERROR, space.errors[:base][0]) 
   	end
 	    
@@ -32,6 +31,7 @@ class SpacesController < ApplicationController
 	end
 
 	def search
-		@spaces = Space.search_for_spaces(Search.new params[:search])
+    search_request = Search.new params[:search]
+		@spaces = Space.search_for_spaces(search_request).push(*Space.search_for_shared_room_types(search_request))
 	end
 end

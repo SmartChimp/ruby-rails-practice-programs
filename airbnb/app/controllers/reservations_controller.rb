@@ -12,18 +12,16 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-		begin
-			reserve_space = ReserveSpace.new params[:reserve]
-			reserve_space.user_id = session[:user_id]
-			if @reservation_service.reserve(reserve_space)
-				render json: @response_helper.get_response_object(ResponseUtils.SUCCESS) 
-			else 
-				render json: @response_helper.get_response_object(ResponseUtils.ERROR, ResponseUtils.SPACE_NOT_AVAILABLE)
-			end
-		rescue Exception => e
-			puts "Exception : #{e}"
+		reserve_space = ReserveSpace.new params[:reserve]
+		reserve_space.user_id = session[:user_id]
+		if @reservation_service.reserve(reserve_space)
+			render json: @response_helper.get_response_object(ResponseUtils.SUCCESS) 
+		else 
 			render json: @response_helper.get_response_object(ResponseUtils.ERROR, ResponseUtils.SPACE_NOT_AVAILABLE)
 		end
+	rescue Exception => e
+		puts "Exception : #{e}"
+		render json: @response_helper.get_response_object(ResponseUtils.ERROR, ResponseUtils.SPACE_NOT_AVAILABLE)
 	end
 
 	def new

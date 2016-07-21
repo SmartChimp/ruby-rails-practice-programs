@@ -7,20 +7,18 @@ class Reservation < ActiveRecord::Base
     } 
   }
 
-  def self.reserve(reserve_space)
-    Reservation.where("((
-              :from >= from_date
-              AND :from <= to_date
-              )
-            OR ( 
-              :to >= from_date
-              AND :to <= to_date 
-              ) 
-            OR ( 
-              from_date > :from
-              AND from_date < :from
-              ) 
-            ) AND space_id = :space_id", { from: reserve_space.from, to: reserve_space.to, space_id: reserve_space.space_id }).first_or_create do |reservation| 
+  scope :get_reservation_between_days, lambda { |search| 
+      where("city_id = :city_id 
+      AND ( 
+            (:from BETWEEN from_date AND to_date)
+            OR (:to BETWEEN from_date AND to_date) 
+            OR (from_date BETWEEN :from AND :to)
+          ) AND room_type != :shared_room_type", 
+      { city_id: search.city_id.to_i, from: search.from, to: search.to, shared_room_type: Airbnb::SHARED_ROOM } ).select("space_id, no_of_guests")
+  }
+
+  def self.reserve_non_shared_rooms(reserve_space)
+    Reservation.where("( :from BETWEEN from_date AND to_date OR :to BETWEEN from_date AND to_date OR from_date BETWEEN :from AND :to ) AND space_id = :space_id", { from: reserve_space.from, to: reserve_space.to, space_id: reserve_space.space_id }).first_or_create do |reservation| 
       reservation.to_date = reserve_space.to
       reservation.from_date = reserve_space.from
       reservation.user_id = reserve_space.user_id

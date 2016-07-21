@@ -1,5 +1,5 @@
 class ReserveSpace
-	attr_accessor :from, :to, :space_id, :user_id, :no_of_guests, :city_id, :room_type, :space_max_guests_count
+	attr_accessor :from, :to, :space_id, :user_id, :no_of_guests, :city_id, :room_type 
 
 	def initialize(args)
 		@from = Date.strptime(args["from"], '%m/%d/%Y')

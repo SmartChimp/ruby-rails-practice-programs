@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :spaces
   has_many :reservations
+  has_many :reserved_guests
 
   validates :firstname, presence: true
   validates :lastname, presence: true

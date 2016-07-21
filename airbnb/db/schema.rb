@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160627092450) do
+ActiveRecord::Schema.define(:version => 20160719071349) do
 
   create_table "amenities", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(:version => 20160627092450) do
     t.integer  "user_id"
     t.integer  "space_id"
   end
+
+  create_table "reserved_guests", :force => true do |t|
+    t.integer  "guests_count"
+    t.date     "calendar_date", :null => false
+    t.integer  "space_id",      :null => false
+    t.integer  "lock_version"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "reserved_guests", ["calendar_date", "space_id"], :name => "index_reserved_guests_on_calendar_date_and_space_id", :unique => true
 
   create_table "spaces", :force => true do |t|
     t.string   "address"

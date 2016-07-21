@@ -7,13 +7,19 @@ class ReservationService
     if(space != nil)
       reserve_space.room_type = space.room_type
       reserve_space.city_id = space.city_id
-      reserve_space.space_max_guests_count = space.max_guests_count
-      reserved_space = Reservation.reserve(reserve_space)
-      if(reserved_space.user_id == reserved_space.user_id && reserved_space.from_date == reserve_space.from && reserved_space.to_date == reserve_space.to)
-        is_space_reserved = true
+
+      if(space.room_type == Airbnb::SHARED_ROOM) 
+        return is_space_reserved if !ReservedGuest.increment_guests_count(reserve_space.from, reserve_space.to, reserve_space.space_id, reserve_space.no_of_guests, space.max_guests_count)
+        Reservation.new(from_date: reserve_space.from, to_date: reserve_space.to, user_id: reserve_space.user_id, space_id: reserve_space.space_id, no_of_guests: reserve_space.no_of_guests, city_id: reserve_space.city_id, room_type: reserve_space.room_type).save
+        is_space_reserved = true;
+      else
+        reserved_space = Reservation.reserve_non_shared_rooms(reserve_space)
+        if(reserved_space.user_id == reserve_space.user_id && reserved_space.from_date == reserve_space.from && reserved_space.to_date == reserve_space.to)
+          is_space_reserved = true
+        end  
       end
     end
-    return is_space_reserved
+    is_space_reserved
   end
   
 end
