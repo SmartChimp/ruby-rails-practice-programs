@@ -129,25 +129,13 @@ function clickEventOnMenuItem() {
 
 function initListingPage() {
     $('#add-space-icon').click(function() {
+        addFormContent();
         toggleRightAndLeftPanel();
         $(".right-panel #form-div").toggleClass('transform-form-div');
         $("#form-div .form-component").toggleClass('transform-form-component');
         $(this).hide(100);
     });
-    $('#close-icon').click(function() {
-        toggleRightAndLeftPanel();
-        $(".right-panel #form-div").toggleClass('transform-form-div');
-        $("#form-div .form-component").toggleClass('transform-form-component');
-        $('#add-space-icon').show(200);
-    });
-    for (i = 1; i < 16; i++) {
-        $('#guests-count').append($('<option>').attr('value', i).html(i));
-        if (i < 11) {
-            $('#beds-count').append($('<option>').attr('value', i).html(i));
-            $('#bath-rooms-count').append($('<option>').attr('value', i).html(i));
-        }
-    }
-
+    
     $('.left-panel').resize(function() {
         if ($(this).width() < 900) {
             $('.list-as-row .space-wrapper').removeClass('col-lg-6');
@@ -155,7 +143,7 @@ function initListingPage() {
             $('.list-as-row .space-wrapper').addClass('col-lg-6');
         }
     });
-    addAutoCompleteForCity($('input[name="city"]'), $("input[name=\"space[city_id]\"]"));
+    
     Holder.addTheme("my-theme", { bg: "#ffadad", fg: "white" }).run();
 }
 
@@ -451,4 +439,66 @@ function hideInfoMessage() {
 function hideErrMessage() {
     $('.err_message').removeClass('show').addClass('hide');
     return false;   
+}
+
+function addFormContent() {
+    $('.right-panel').html('<div id="form-div"> <i id="close-icon" class="ionicons ion-android-close"></i> <div class="alert alert-danger err_message hide"> <a href="#" class="close" data-dismiss="alert" onclick="return hideErrMessage()" aria-label="close">&times;</a> <div class="message"></div> </div> <form> <fieldset> <label class="form-component" for="city">City</label> <input type="hidden" name="space[city_id]" id="space[city_id]" /> <input class="form-control" name="city" type="text" placeholder="City" onfocus="removeErrClass(this)"> <label for="home-type" class="form-component">Home type</label> <div> <label> <input type="radio" name="space[home_type]" value="1" /> Apartment </label> <label> <input type="radio" name="space[home_type]" value="2" /> House </label> <label> <input type="radio" name="space[home_type]" value="3" /> Bed & Breakfast </label> </div> <label for="room-type" class="form-component">Room type</label> <div> <label> <input type="radio" name="space[room_type]" value="1" /> Entire home </label> <label> <input type="radio" name="space[room_type]" value="2" /> Shared home </label> <label> <input type="radio" name="space[room_type]" value="3" /> Private room </label> </div> <label class="form-component" for="address">Address</label> <input name="space[address]" onfocus="removeErrClass(this)" type="text" placeholder="no., street address, location."> <label class="form-component" for="guests-count">How many guest can stay?</label> <div> <select id="guests-count" name="space[max_guests_count]"></select> </div> <label class="form-component" for="beds-count">No of beds.</label> <div> <select id="beds-count" name="space[beds_count]"></select> </div> <label class="form-component" for="bath-rooms-count">How many bathrooms?</label> <div> <select id="bath-rooms-count" name="space[bathrooms_count]"></select> </div> <label class="form-component" for="space[cost_per_day]">Pricing per day</label> <input name="space[cost_per_day]" type="text" placeholder="in rupees." onfocus="removeErrClass(this)"> <br> <div class="submit-form-btn-wrapper"> <input data-action="/spaces" type="submit" class="btn btn-primary" value="Submit" onclick="return addSpace(this)" /> </div> </fieldset> </form></div>');
+    $('#close-icon').click(function() {
+        toggleRightAndLeftPanel();
+        $(".right-panel #form-div").toggleClass('transform-form-div');
+        $("#form-div .form-component").toggleClass('transform-form-component');
+        $('#add-space-icon').show(200);
+    });
+    for (i = 1; i < 16; i++) {
+        $('#guests-count').append($('<option>').attr('value', i).html(i));
+        if (i < 11) {
+            $('#beds-count').append($('<option>').attr('value', i).html(i));
+            $('#bath-rooms-count').append($('<option>').attr('value', i).html(i));
+        }
+    }
+    addAutoCompleteForCity($('input[name="city"]'), $("input[name=\"space[city_id]\"]"));
+}
+
+function showReservationsOnThisSpace(spaceId){
+  $('.right-panel').empty();
+  $(".body-content .right-panel").addClass('transform-right-panel');
+  $(".body-content .left-panel").addClass('transform-left-panel');
+  $('#add-space-icon').hide(100);
+  $.ajax({
+    url: '/spaces/'+spaceId+'/reservations.json',
+    type: 'GET',
+    success: function(data, status) {
+      renderReservationsOnRightPanel(data.reservations);
+      addCloseIconClickEvent();
+    },
+    error: function(data, status) {
+      $('.right-panel').append($('<div>').addClass('close-icon-div').append($('<i>').attr('id', 'close-icon').addClass('ionicons ion-android-close close-icon'))).append($('<div>').addClass('list-space-reservations-div').append('Oops.. Currently this service is not available, please try after sometimes.'));
+      addCloseIconClickEvent();
+    }
+  });
+  return false;
+}
+
+function addCloseIconClickEvent() {
+  $('#close-icon').click(function() {
+    toggleRightAndLeftPanel();
+    $(".right-panel #form-div").toggleClass('transform-form-div');
+    $("#form-div .form-component").toggleClass('transform-form-component');
+    $('#add-space-icon').show(200);
+    $(this).hide(200);
+  });
+}
+
+function renderReservationsOnRightPanel(reservations){
+  var listSpaceReservationsDiv = $('<div>').addClass('list-space-reservations-div');
+  $('.right-panel').append($('<div>').addClass('close-icon-div').append($('<i>').attr('id', 'close-icon').addClass('ionicons ion-android-close close-icon'))).append(listSpaceReservationsDiv);
+  if(reservations.length > 0) {
+    var listSpaceReservationsUl = $('<ul>').addClass('list-group'); 
+    listSpaceReservationsDiv.append(listSpaceReservationsUl);
+    for(reservation of reservations) {
+      listSpaceReservationsUl.append($('<li>').addClass('list-group-item').append($('<div>').append(reservation.from +" to "+ reservation.to)).append($('<div>').append("Guests : "+reservation.guestsCount).addClass("guests-count")).append($('<div>').append("Reserved by "+reservation.user.firstname+" "+reservation.user.lastname)));
+    }
+  } else {
+    listSpaceReservationsDiv.append('No reservations to list on upcoming days.');
+  }
 }

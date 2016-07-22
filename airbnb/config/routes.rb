@@ -74,7 +74,9 @@ Airbnb::Application.routes.draw do
     collection do
       get 'search'
     end
+    get 'reservations', on: :member 
   end
+
   resource :dashboard
   resources :reservations
 

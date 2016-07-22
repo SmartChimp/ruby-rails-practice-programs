@@ -7,6 +7,10 @@ class Reservation < ActiveRecord::Base
     } 
   }
 
+  scope :get_all_reservations_by_user_space, lambda { |space_id, user_id| 
+    where("space_id = :space_id AND user_id = :user_id AND from_date >= date('now')", {space_id: space_id, user_id: user_id})
+  }
+
   scope :get_reservation_between_days, lambda { |search| 
       where("city_id = :city_id 
       AND ( 

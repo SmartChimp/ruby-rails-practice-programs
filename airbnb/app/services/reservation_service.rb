@@ -14,7 +14,7 @@ class ReservationService
         is_space_reserved = true;
       else
         reserved_space = Reservation.reserve_non_shared_rooms(reserve_space)
-        if(reserved_space.user_id == reserve_space.user_id && reserved_space.from_date == reserve_space.from && reserved_space.to_date == reserve_space.to)
+        if reserved_space.user_id == reserve_space.user_id
           is_space_reserved = true
         end  
       end

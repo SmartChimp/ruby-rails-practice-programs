@@ -34,4 +34,9 @@ class SpacesController < ApplicationController
     search_request = Search.new params[:search]
 		@spaces = Space.search_for_spaces(search_request).push(*Space.search_for_shared_room_types(search_request))
 	end
+
+  def reservations
+    return render "welcome/home" if !is_user_session_exists?
+    @reservations = Reservation.get_all_reservations_by_user_space(params[:id], session[:user_id])
+  end
 end
